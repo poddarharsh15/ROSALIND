@@ -1,0 +1,23 @@
+def two_way_partition(a):
+    '''Performs a 2-way partition on the array a.'''
+    # Trivial with list comprehensions.
+    return [x for x in a[1:] if x <= a[0]] + [a[0]] + [x for x in a[1:] if x > a[0]]
+
+
+def main():
+    '''Main call. Reads, runs, and saves problem specific data.'''
+    # Read the input data.
+    with open('C:/Users/User/Downloads/rosalind_par.txt') as input_data:
+        input_data.readline()  # Don't need the first line.
+        a = map(int, input_data.readline().strip().split())
+
+    # Perform the 2-way partition.
+    a = map(str, two_way_partition(a))
+
+    # Print and save the answer.
+    #print ' '.join(a)
+    with open('C:/Users/User/Downloads/Algorithmic_013_PAR.txt', 'w') as output_data:
+        output_data.write(' '.join(a))
+
+if __name__ == '__main__':
+    main()
